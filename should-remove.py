@@ -18,6 +18,10 @@ kiosk_max_page = {25:4,87:3,135:3,136:3,137:2,138:2,139:4,140:3,141:3}
 locker_info={}
 oneday_before_locker_info={}
 
+print "Content-type: text/html\n"
+#print "Hello, Python!"
+
+
 
 
 
@@ -126,10 +130,10 @@ def getKioskData_local(dir_name,kiosk_num):
 dir_name =""
 local_dir_state=False
 
-
-if len(sys.argv)==2:
-	local_dir_state=True	
-	dir_name=sys.argv[1]
+#
+#if len(sys.argv)==2:
+#	local_dir_state=True	
+#	dir_name=sys.argv[1]
 
 
 
@@ -137,6 +141,8 @@ if (local_dir_state==False):
 	#login 
 	#dir = os.path.dirname("/home/ijij41/clawler/")
 	#os.chdir(dir)
+	dir = os.path.dirname("/archive/web/html/ubi/")
+	os.chdir(dir)
 	html = open('login.asp')
 	forms = ClientForm.ParseFile(html,'http://www.u-express.com/login/LoginProc.asp')
 	form = forms[0]
@@ -161,7 +167,7 @@ if (local_dir_state==False):
 		oneday_before_locker_info[kiosk_num] = getKioskData_local(oneday_before.strftime('%Y%m%d_17'),kiosk_num)	
 
 
-
+#
 else:
 	assert False
 
@@ -192,6 +198,7 @@ tmp_list = kiosk_list.keys()
 tmp_list.sort()
 
 tmp_list=[140,135,141,138,137,139,136]
+#tmp_list=[140]
 
 
 mandantory_pickup={}

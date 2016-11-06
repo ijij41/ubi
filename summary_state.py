@@ -19,6 +19,7 @@ kiosk_max_page = {25:4,87:3,135:3,136:3,137:2,138:2,139:4,140:3,141:3}
 locker_info={}
 oneday_before_locker_info={}
 
+print "Content-type: text/html\n"
 
 #def getContent(kiosk_num,page_num):
 #	response = urllib2.urlopen('http://www.u-express.com/management/LockerState.asp?page='+str(page_num)+'&colName=Locker_Name&srt=0&kfield=&kword=&srh=0&kid='+str(kiosk_num))
@@ -131,18 +132,21 @@ def getKioskData_local(dir_name,kiosk_num):
 
 dir_name =""
 local_dir_state=False
-
-
-if len(sys.argv)==2:
-	local_dir_state=True	
-	dir_name=sys.argv[1]
-
+#
+#
+#if len(sys.argv)==2:
+#	local_dir_state=True	
+#	dir_name=sys.argv[1]
+#
 
 
 if (local_dir_state==False):
 	#login 
 	#dir = os.path.dirname("/home/ijij41/clawler/")
 	#os.chdir(dir)
+
+	dir = os.path.dirname("/archive/web/html/ubi/")
+	os.chdir(dir)
 	html = open('login.asp')
 	forms = ClientForm.ParseFile(html,'http://www.u-express.com/login/LoginProc.asp')
 	form = forms[0]
