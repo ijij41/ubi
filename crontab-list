@@ -1,0 +1,8 @@
+ijij41@ijij41-desktop:~/clawler$ crontab -l
+# m h dom mon dow command
+10 8 * * * /home/ijij41/clawler/clawler_login.py
+10 8 * * * /home/ijij41/clawler/clawler_account.py
+10,50 * * * * /home/ijij41/clawler/realtime_account.py
+10 5,11,15,20,22 * * * /home/ijij41/clawler/polling_error_state_for_sendmail.py
+10 8 * * * /home/ijij41/clawler/polling_error_system.py 
+10 8 * * * /home/ijij41/clawler/polling_error_data_transfer_time.py 
