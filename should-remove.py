@@ -1,7 +1,6 @@
 #! /usr/bin/python
 # -*- coding: utf-8 -*-
 
-
 import os,urllib
 import urllib2
 #import mechanize
@@ -14,14 +13,17 @@ import sys
 import BeautifulSoup
 
 kiosk_list = {25:'덕성여대',87:'동덕여대',135:'강남역 4번출구 B1',136:'정자역',137:'청계산',138:'매헌',139:'판교',140:'강남역 개표소',141:'양재역'}
+#kiosk_list = {25:u'덕성여대',87:u'동덕여대',135:u'강남역 4번출구 B1',136:u'정자역',137:u'청계산',138:u'매헌',139:u'판교',140:u'강남역 개표소',141:u'양재역'}
 kiosk_max_page = {25:4,87:3,135:3,136:3,137:2,138:2,139:4,140:3,141:3}
 locker_info={}
 oneday_before_locker_info={}
 
-print "Content-type: text/html\n"
+print "Content-type: text/html; charset=EUC-KR\n"
 #print "Hello, Python!"
-
-
+#print '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"\n'
+#print '	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">\n'
+#print '<html xmlns="http://www.w3.org/1999/xhtml" lang="ko"  xml:lang="ko">\n'
+#print '<meta http-equiv="Content-Type" Content="text/html; charset=utf-8" /n'
 
 
 
@@ -296,26 +298,38 @@ for kiosk_num in tmp_list:
 
 
 #print mandantory_pickup
-for kiosk_num in tmp_list:
-	print "-------------------"
-	print "Kiosk : "+kiosk_list[kiosk_num]
+print "<html>"
+#print "한글".decode('utf-8').encode('euc-kr')
+#print "aaa"
 
-	print "강제수거"
+for kiosk_num in tmp_list:
+	print "<p>"
+	print "-------------------</br>"
+	aa = "Kiosk : "+kiosk_list[kiosk_num]+"</br>"
+	print aa.decode('utf-8').encode('euc-kr')
+	print "</br>"
+
+	print "강제수거</br>".decode('utf-8').encode('euc-kr')
 	if(len(mandantory_pickup[kiosk_num])>0):
 		for mand in mandantory_pickup[kiosk_num]:
-			print mand[0],mand[1],mand[2] 
+			print mand[0]+" "+mand[1]+" "+mand[2]+"</br>"
 	else:
-		print "없음"
+		print "없음</br>".decode('utf-8').encode('euc-kr')
 
-	print	
-	print "확인수거"
+
+	print "</br>"	
+	print "확인수거</br>".decode('utf-8').encode('euc-kr')
+
 	if(len(after_check_pickup[kiosk_num])>0):
 		for afterpick in after_check_pickup[kiosk_num]:
-			print afterpick[0],afterpick[1],afterpick[2] 
+			print afterpick[0]+" "+afterpick[1]+" "+afterpick[2]+"</br>"
 	else:
-		print "없음"
-
-	print
+		print "없음</br>".decode('utf-8').encode('euc-kr')
 
 
+	print "</br>"	
+	print "</p>"
 
+
+
+print "</html>"
