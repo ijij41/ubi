@@ -166,7 +166,7 @@ if (local_dir_state==False):
 
 	#get all information
 	for kiosk_num in kiosk_list.keys():
-		oneday_before_locker_info[kiosk_num] = getKioskData_local(oneday_before.strftime('%Y%m%d_17'),kiosk_num)	
+		oneday_before_locker_info[kiosk_num] = getKioskData_local(oneday_before.strftime('%Y%m%d_08'),kiosk_num)	
 
 
 #
@@ -300,7 +300,6 @@ for kiosk_num in tmp_list:
 #print mandantory_pickup
 print "<html>"
 #print "한글".decode('utf-8').encode('euc-kr')
-#print "aaa"
 
 for kiosk_num in tmp_list:
 	print "<p>"
